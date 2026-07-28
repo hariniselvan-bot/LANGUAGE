@@ -1,0 +1,386 @@
+/* ==========================================================================
+   STACKLY - INNER PAGE HERO/BANNER (REUSABLE COMPONENT)
+   ========================================================================== */
+
+/* ── BANNER CONTAINER ── */
+.page-banner {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 400px;
+  border-radius: 0 0 36px 36px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fdfcf8 0%, #f7f5ee 40%, #f5ebe1 70%, #efe8dc 100%);
+  isolation: isolate;
+}
+
+/* ── BACKGROUND OVERLAY ── */
+.page-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(253, 252, 248, 0.3);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ── DECORATIVE BLOBS ── */
+.page-banner .banner-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-banner .banner-blob-1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(90, 90, 64, 0.08) 0%, transparent 70%);
+  top: -100px;
+  right: -80px;
+  animation: blobFloat 8s ease-in-out infinite;
+}
+
+.page-banner .banner-blob-2 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(232, 157, 103, 0.12) 0%, transparent 70%);
+  bottom: -80px;
+  left: -60px;
+  animation: blobFloat 10s ease-in-out infinite 1s;
+}
+
+.page-banner .banner-blob-3 {
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(245, 235, 225, 0.6) 0%, transparent 70%);
+  top: 20%;
+  left: 10%;
+  animation: blobFloat 6s ease-in-out infinite 0.5s;
+}
+
+.page-banner .banner-blob-4 {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(90, 90, 64, 0.05) 0%, transparent 70%);
+  bottom: 15%;
+  right: 15%;
+  animation: blobFloat 7s ease-in-out infinite 2s;
+}
+
+@keyframes blobFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(15px, -20px) scale(1.05); }
+}
+
+/* ── DOTTED GRID PATTERN ── */
+.page-banner .banner-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(90, 90, 64, 0.06) 1.5px, transparent 1.5px);
+  background-size: 40px 40px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── DECORATIVE ICONS ── */
+.page-banner .banner-icon {
+  position: absolute;
+  font-size: 1.6rem;
+  color: var(--dark-green);
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+  font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free', 'FontAwesome';
+  font-weight: 900;
+}
+
+.page-banner .banner-icon-1 { top: 12%; left: 8%; font-size: 2rem; opacity: 0.08; }
+.page-banner .banner-icon-2 { top: 25%; right: 12%; font-size: 1.8rem; opacity: 0.1; }
+.page-banner .banner-icon-3 { bottom: 20%; left: 15%; font-size: 1.5rem; opacity: 0.07; }
+.page-banner .banner-icon-4 { bottom: 30%; right: 8%; font-size: 2.2rem; opacity: 0.09; }
+.page-banner .banner-icon-5 { top: 50%; left: 5%; font-size: 1.3rem; opacity: 0.06; }
+
+/* ── CURVED LINE DECORATION ── */
+.page-banner .banner-line {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-banner .banner-line-1 {
+  top: 15%;
+  right: 5%;
+  width: 120px;
+  height: 120px;
+  border: 2px solid rgba(232, 157, 103, 0.12);
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  transform: rotate(45deg);
+}
+
+.page-banner .banner-line-2 {
+  bottom: 10%;
+  left: 3%;
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgba(90, 90, 64, 0.08);
+  border-radius: 50%;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(30deg);
+}
+
+/* ── BANNER CONTENT ── */
+.page-banner .banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
+}
+
+/* Floating decorative shapes that respond to mouse parallax */
+.page-banner .banner-float-item {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  transition: transform 0.1s ease-out;
+}
+
+.page-banner .banner-float-item.shape-circle {
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(90, 90, 64, 0.12);
+  border-radius: 50%;
+}
+
+.page-banner .banner-float-item.shape-square {
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(232, 157, 103, 0.15);
+  border-radius: 8px;
+  transform: rotate(15deg);
+}
+
+.page-banner .banner-float-item.shape-triangle {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 30px solid rgba(232, 157, 103, 0.1);
+  background: none !important;
+}
+
+.page-banner .banner-float-item:nth-child(1) { top: 10%; left: 5%; }
+.page-banner .banner-float-item:nth-child(2) { top: 20%; right: 8%; }
+.page-banner .banner-float-item:nth-child(3) { bottom: 15%; left: 10%; }
+.page-banner .banner-float-item:nth-child(4) { bottom: 25%; right: 5%; }
+.page-banner .banner-float-item:nth-child(5) { top: 45%; left: 3%; }
+.page-banner .banner-float-item:nth-child(6) { top: 55%; right: 3%; }
+
+/* ── BANNER TAG ── */
+.page-banner .banner-tag {
+  display: inline-block;
+  background: var(--card-white);
+  color: var(--dark-green);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 6px 18px;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 12px rgba(90, 90, 64, 0.08);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.page-banner .banner-tag.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── BANNER TITLE ── */
+.page-banner .banner-title {
+  font-family: var(--font-heading);
+  font-size: 3.8rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease 0.15s, transform 0.8s ease 0.15s;
+}
+
+.page-banner .banner-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── BANNER SUBTEXT ── */
+.page-banner .banner-subtext {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto 20px auto;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+
+.page-banner .banner-subtext.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── BREADCRUMB ── */
+.page-banner .banner-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card-white);
+  padding: 10px 24px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 16px rgba(90, 90, 64, 0.08);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.45s, transform 0.6s ease 0.45s;
+}
+
+.page-banner .banner-breadcrumb.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-banner .banner-breadcrumb .breadcrumb-home {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.page-banner .banner-breadcrumb .breadcrumb-home:hover {
+  color: var(--dark-green);
+}
+
+.page-banner .banner-breadcrumb .breadcrumb-sep {
+  color: rgba(110, 109, 106, 0.4);
+  font-weight: 300;
+}
+
+.page-banner .banner-breadcrumb .breadcrumb-current {
+  color: var(--dark-green);
+  font-weight: 700;
+}
+
+/* ── PARALLAX LAYER (inner elements move at different speed) ── */
+.page-banner .parallax-layer {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+/* ==========================================================================
+   RESPONSIVE BANNER
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .page-banner {
+    height: 320px;
+    margin: 0 8px;
+    width: auto;
+    border-radius: 0 0 28px 28px;
+  }
+
+  .page-banner .banner-title {
+    font-size: 2.8rem;
+  }
+
+  .page-banner .banner-subtext {
+    font-size: 1rem;
+    max-width: 440px;
+  }
+
+  .page-banner .banner-blob-1 { width: 280px; height: 280px; top: -60px; right: -60px; }
+  .page-banner .banner-blob-2 { width: 200px; height: 200px; bottom: -60px; left: -40px; }
+  .page-banner .banner-blob-3 { width: 120px; height: 120px; }
+  .page-banner .banner-blob-4 { width: 80px; height: 80px; }
+}
+
+@media (max-width: 640px) {
+  .page-banner {
+    height: 260px;
+    border-radius: 0 0 24px 24px;
+  }
+
+  .page-banner .banner-title {
+    font-size: 2rem;
+  }
+
+  .page-banner .banner-subtext {
+    display: none;
+  }
+
+  .page-banner .banner-tag {
+    font-size: 0.75rem;
+    padding: 4px 14px;
+  }
+
+  .page-banner .banner-breadcrumb {
+    font-size: 0.8rem;
+    padding: 6px 16px;
+    gap: 6px;
+  }
+
+  .page-banner .banner-content {
+    padding: 12px;
+  }
+
+  .page-banner .banner-blob-1 { width: 200px; height: 200px; }
+  .page-banner .banner-blob-2 { width: 140px; height: 140px; }
+  .page-banner .banner-blob-3 { width: 80px; height: 80px; }
+  .page-banner .banner-icon { font-size: 1rem; }
+  .page-banner .banner-icon-1 { font-size: 1.3rem; }
+  .page-banner .banner-icon-2 { font-size: 1.1rem; }
+  .page-banner .banner-icon-4 { font-size: 1.4rem; }
+
+  .page-banner .banner-line-1 { width: 70px; height: 70px; }
+  .page-banner .banner-line-2 { width: 50px; height: 50px; }
+}
+
+@media (max-width: 480px) {
+  .page-banner {
+    height: 220px;
+  }
+
+  .page-banner .banner-title {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+
+  .page-banner .banner-tag {
+    font-size: 0.7rem;
+    padding: 3px 12px;
+    margin-bottom: 10px;
+  }
+
+  .page-banner .banner-breadcrumb {
+    font-size: 0.72rem;
+    padding: 5px 12px;
+    gap: 4px;
+  }
+}
+

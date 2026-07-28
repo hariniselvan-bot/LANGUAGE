@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Page Not Found - Stackly</title>
+  <meta name="description" content="The page you are looking for does not exist or has been moved.">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 32px; width: auto; filter: brightness(0);">
+      </a>
+
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+        <a href="login.html" class="btn btn-white">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 404 CONTENT -->
+  <main class="container" style="min-height: calc(100vh - 200px); display: flex; align-items: center; justify-content: center; padding: 40px 16px;">
+    <div style="background: var(--card-white); border-radius: var(--radius-xl); padding: 64px 48px; text-align: center; max-width: 680px; width: 100%; box-shadow: var(--shadow-lg); position: relative; overflow: hidden;" class="zoom-in">
+      
+      <!-- Floating Shapes -->
+      <div class="floating-elem" style="position: absolute; top: 20px; left: 30px; width: 40px; height: 40px; background: var(--card-yellow); border-radius: 12px; opacity: 0.6;"></div>
+      <div class="floating-elem" style="position: absolute; bottom: 30px; right: 40px; width: 50px; height: 50px; background: var(--card-pink); border-radius: 50%; opacity: 0.6; animation-delay: 1.5s;"></div>
+
+      <div style="font-size: 7rem; font-weight: 800; font-family: var(--font-heading); color: var(--dark-green); line-height: 1; margin-bottom: 16px;" class="floating-elem">
+        404
+      </div>
+
+      <h1 style="font-size: 2.2rem; margin-bottom: 12px;">Oops! Page Lost in Translation</h1>
+      <p style="color: var(--text-muted); margin-bottom: 28px; font-size: 1.1rem;">
+        The page you're searching for might have been moved or doesn't exist yet. Try searching for a lesson or topic below.
+      </p>
+
+      <!-- Search Bar UI -->
+      <div style="max-width: 440px; margin: 0 auto 36px auto;">
+        <input type="text" placeholder="&#x1F50D; Search courses, vocabulary, or help articles..." style="width: 100%; padding: 14px 20px; border-radius: var(--radius-pill); border: 2px solid var(--dark-green); background: #F9FBF2; font-size: 0.95rem;">
+      </div>
+
+      <!-- Action Buttons -->
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <button onclick="history.back();" class="btn btn-white" style="padding: 14px 28px;">
+          ← Previous Page
+        </button>
+        <a href="index.html" class="btn btn-primary" style="padding: 14px 28px;">
+          Back Home <i class="fas fa-home"></i>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 36px; filter: brightness(0) invert(1);">
+        </a>
+        <p>Learn Anywhere. Speak Everywhere.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Stackly. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/animation.js"></script>
+</body>
+</html>

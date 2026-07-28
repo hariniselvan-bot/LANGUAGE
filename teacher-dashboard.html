@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Dashboard - Stackly</title>
+  <meta name="description" content="Your Stackly teacher dashboard — classes, students, performance.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div class="db-overlay"></div>
+
+  <div class="db-wrapper">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="db-sidebar">
+      <div>
+        <div class="db-sidebar-logo">
+          <img src="assets/images/logo.webp" alt="">
+
+        </div>
+        <nav class="db-sidebar-menu">
+          <button class="db-menu-item db-active" data-section="dashboard"><i class="fas fa-th-large"></i> Dashboard</button>
+          <button class="db-menu-item" data-section="my-classes"><i class="fas fa-chalkboard"></i> My Classes</button>
+          <button class="db-menu-item" data-section="students"><i class="fas fa-users"></i> Students</button>
+          <button class="db-menu-item" data-section="profile"><i class="fas fa-user-circle"></i> Profile</button>
+          <button class="db-menu-item" data-section="settings"><i class="fas fa-cog"></i> Settings</button>
+        </nav>
+      </div>
+      <div class="db-sidebar-bottom">
+        <button class="db-logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+      </div>
+    </aside>
+
+    <!-- ===== MAIN ===== -->
+    <div class="db-main-wrap">
+
+      <!-- Fixed Header -->
+      <header class="db-header">
+        <div class="db-header-left">
+          <button class="db-hamburger" aria-label="Toggle sidebar"><i class="fas fa-bars"></i></button>
+          <div>
+            <h1 class="db-header-title">Dashboard</h1>
+            <p>Welcome back, <span class="db-user-name">Teacher</span></p>
+          </div>
+        </div>
+        <div class="db-header-right">
+          <div class="db-header-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search students, classes...">
+          </div>
+          <button class="db-notif-btn" aria-label="Notifications">
+            <i class="far fa-bell"></i>
+            <span class="db-notif-dot"></span>
+          </button>
+          <div class="db-profile-dropdown">
+            <img src="assets/images/img13.jpg" alt="Profile" class="db-avatar">
+            <div class="db-dropdown-menu">
+              <a href="#" class="db-dropdown-item" data-section="profile"><i class="fas fa-user-circle"></i> View Profile</a>
+              <a href="#" class="db-dropdown-item" data-section="settings"><i class="fas fa-cog"></i> Settings</a>
+              <div class="db-dropdown-divider"></div>
+              <a href="#" class="db-dropdown-item db-dropdown-logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ===== SCROLLABLE CONTENT ===== -->
+      <div class="db-content">
+
+        <!-- ============================================================
+             SECTION: DASHBOARD
+             ============================================================ -->
+        <div id="section-dashboard" class="db-section">
+
+          <div class="db-welcome-card db-fade-in">
+            <div class="db-welcome-text">
+              <h2>Good morning, <span class="db-user-name">Teacher</span>! 🍎</h2>
+              <p>You are teaching 3 active courses with 184 students this month.</p>
+            </div>
+            <div class="db-welcome-streak">
+              <i class="fas fa-chalkboard-teacher"></i>
+              <div>
+                <div class="num">2</div>
+                <div class="label">Today's Classes</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="db-grid-4 db-fade-in">
+            <div class="db-card">
+              <div class="db-card-icon green"><i class="fas fa-users"></i></div>
+              <div class="db-stat-value">184</div>
+              <div class="db-stat-label">Total Students</div>
+            </div>
+            <div class="db-card">
+              <div class="db-card-icon orange"><i class="fas fa-book-open"></i></div>
+              <div class="db-stat-value">3</div>
+              <div class="db-stat-label">Active Courses</div>
+            </div>
+            <div class="db-card">
+              <div class="db-card-icon green"><i class="fas fa-clock"></i></div>
+              <div class="db-stat-value">1,420</div>
+              <div class="db-stat-label">Live Hours</div>
+            </div>
+            <div class="db-card">
+              <div class="db-card-icon orange"><i class="fas fa-star"></i></div>
+              <div class="db-stat-value">4.98</div>
+              <div class="db-stat-label">Rating</div>
+            </div>
+          </div>
+
+          <div class="db-grid-2 db-fade-in">
+            <div class="db-card">
+              <div class="db-card-header"><h3>📅 Today's Classes</h3><a href="#">Full Schedule</a></div>
+              <div class="db-class-item">
+                <div class="db-class-time"><div class="time">9:00</div><div class="ampm">AM</div></div>
+                <div class="db-class-info"><h4>Spanish Conversational — B1</h4><p>12 students enrolled</p></div>
+                <span class="db-class-badge">Now</span>
+              </div>
+              <div class="db-class-item">
+                <div class="db-class-time"><div class="time">2:00</div><div class="ampm">PM</div></div>
+                <div class="db-class-info"><h4>Advanced Spanish Grammar</h4><p>8 students enrolled</p></div>
+                <span class="db-class-badge">Upcoming</span>
+              </div>
+              <div class="db-class-item">
+                <div class="db-class-time"><div class="time">11:00</div><div class="ampm">AM</div></div>
+                <div class="db-class-info"><h4>Spanish for Healthcare</h4><p>6 students enrolled</p></div>
+                <span class="db-class-badge">Tomorrow</span>
+              </div>
+            </div>
+
+            <div class="db-card">
+              <div class="db-card-header"><h3>📝 Assignments</h3><a href="#">View All</a></div>
+              <div class="db-activity-item">
+                <span class="db-activity-dot green"></span>
+                <div class="db-activity-text"><p>Weekly Essay — 12 submissions pending review</p><span>Due: Tomorrow</span></div>
+              </div>
+              <div class="db-activity-item">
+                <span class="db-activity-dot orange"></span>
+                <div class="db-activity-text"><p>Vocabulary Quiz — 8 students completed</p><span>Due: Friday</span></div>
+              </div>
+              <div class="db-activity-item">
+                <span class="db-activity-dot green"></span>
+                <div class="db-activity-text"><p>Oral Presentation — Recording submissions</p><span>Due: Next Monday</span></div>
+              </div>
+              <div class="db-activity-item">
+                <span class="db-activity-dot pink"></span>
+                <div class="db-activity-text"><p>Grammar Exercise — Auto-graded, results ready</p><span>Completed</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="db-grid-2 db-fade-in">
+            <div class="db-card">
+              <div class="db-card-header"><h3>🔔 Notifications</h3><a href="#">View All</a></div>
+              <div class="db-notif-item">
+                <div class="db-notif-icon green"><i class="fas fa-user-plus"></i></div>
+                <div class="db-notif-text"><p>New student enrolled in Spanish Conversational</p><span>30 min ago</span></div>
+              </div>
+              <div class="db-notif-item">
+                <div class="db-notif-icon orange"><i class="fas fa-credit-card"></i></div>
+                <div class="db-notif-text"><p>Monthly payout processed — $7,800</p><span>2 hours ago</span></div>
+              </div>
+              <div class="db-notif-item">
+                <div class="db-notif-icon green"><i class="fas fa-star"></i></div>
+                <div class="db-notif-text"><p>New 5-star review from Carlos Gomez</p><span>1 day ago</span></div>
+              </div>
+              <div class="db-notif-item">
+                <div class="db-notif-icon orange"><i class="fas fa-calendar-check"></i></div>
+                <div class="db-notif-text"><p>Curriculum update deadline in 5 days</p><span>2 days ago</span></div>
+              </div>
+            </div>
+
+            <div class="db-card">
+              <div class="db-card-header"><h3>⚡ Quick Overview</h3></div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div style="background: var(--bg-olive-light); border-radius: 14px; padding: 16px; text-align: center;">
+                  <div style="font-size: 1.3rem; font-weight: 800; color: var(--dark-green);">97%</div>
+                  <div style="font-size: 0.75rem; color: var(--text-muted);">Satisfaction</div>
+                </div>
+                <div style="background: var(--bg-olive-light); border-radius: 14px; padding: 16px; text-align: center;">
+                  <div style="font-size: 1.3rem; font-weight: 800; color: var(--dark-green);">92%</div>
+                  <div style="font-size: 0.75rem; color: var(--text-muted);">Completion</div>
+                </div>
+                <div style="background: var(--bg-olive-light); border-radius: 14px; padding: 16px; text-align: center;">
+                  <div style="font-size: 1.3rem; font-weight: 800; color: var(--dark-green);">4.8</div>
+                  <div style="font-size: 0.75rem; color: var(--text-muted);">Avg Rating</div>
+                </div>
+                <div style="background: var(--bg-olive-light); border-radius: 14px; padding: 16px; text-align: center;">
+                  <div style="font-size: 1.3rem; font-weight: 800; color: var(--dark-green);">156</div>
+                  <div style="font-size: 0.75rem; color: var(--text-muted);">Classes</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             SECTION: MY CLASSES
+             ============================================================ -->
+        <div id="section-my-classes" class="db-section db-hidden">
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;" class="db-fade-in">
+            <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--text-dark);">📚 My Classes</h2>
+            <button class="db-create-btn"><i class="fas fa-plus"></i> Create New Class</button>
+          </div>
+
+          <div class="db-card db-fade-in" style="margin-bottom: 20px;">
+            <div class="db-card-header"><h3>Active Classes</h3><a href="#">View Schedule</a></div>
+            <div class="db-class-item">
+              <div class="db-class-time"><div class="time">9:00</div><div class="ampm">AM</div></div>
+              <div class="db-class-info"><h4>Spanish Conversational — B1</h4><p>Mon, Wed, Fri • 12 students</p></div>
+              <div class="db-class-actions">
+                <button class="db-class-edit"><i class="fas fa-edit"></i> Edit</button>
+                <button class="db-class-delete"><i class="fas fa-trash"></i> Delete</button>
+              </div>
+            </div>
+            <div class="db-class-item">
+              <div class="db-class-time"><div class="time">2:00</div><div class="ampm">PM</div></div>
+              <div class="db-class-info"><h4>Advanced Spanish Grammar</h4><p>Tue, Thu • 8 students</p></div>
+              <div class="db-class-actions">
+                <button class="db-class-edit"><i class="fas fa-edit"></i> Edit</button>
+                <button class="db-class-delete"><i class="fas fa-trash"></i> Delete</button>
+              </div>
+            </div>
+            <div class="db-class-item">
+              <div class="db-class-time"><div class="time">11:00</div><div class="ampm">AM</div></div>
+              <div class="db-class-info"><h4>Spanish for Healthcare</h4><p>Wed, Fri • 6 students</p></div>
+              <div class="db-class-actions">
+                <button class="db-class-edit"><i class="fas fa-edit"></i> Edit</button>
+                <button class="db-class-delete"><i class="fas fa-trash"></i> Delete</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="db-card db-fade-in">
+            <div class="db-card-header"><h3>Upcoming Lessons</h3><a href="#">Full Schedule</a></div>
+            <div class="db-class-item">
+              <div class="db-class-time"><div class="time">9:00</div><div class="ampm">AM</div></div>
+              <div class="db-class-info"><h4>Spanish Conversational — Lesson 24</h4><p>Subjunctive Mood exercises</p></div>
+              <span class="db-class-badge">Tomorrow</span>
+            </div>
+            <div class="db-class-item">
+              <div class="db-class-time"><div class="time">2:00</div><div class="ampm">PM</div></div>
+              <div class="db-class-info"><h4>Advanced Grammar — Lesson 12</h4><p>Relative clauses deep dive</p></div>
+              <span class="db-class-badge">Thu</span>
+            </div>
+            <div class="db-class-item">
+              <div class="db-class-time"><div class="time">11:00</div><div class="ampm">AM</div></div>
+              <div class="db-class-info"><h4>Healthcare Spanish — Lesson 8</h4><p>Patient communication roleplay</p></div>
+              <span class="db-class-badge">Fri</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             SECTION: STUDENTS
+             ============================================================ -->
+        <div id="section-students" class="db-section db-hidden">
+
+          <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--text-dark); margin-bottom: 16px;" class="db-fade-in">👥 My Students</h2>
+
+          <div class="db-search-filter db-fade-in">
+            <input class="db-search-input" type="text" placeholder="Search students by name...">
+            <select class="db-filter-select">
+              <option value="">All Levels</option>
+              <option value="A1">A1 Beginner</option>
+              <option value="A2">A2 Elementary</option>
+              <option value="B1">B1 Intermediate</option>
+              <option value="B2">B2 Upper Intermediate</option>
+              <option value="C1">C1 Advanced</option>
+            </select>
+          </div>
+
+          <div class="db-card db-fade-in" style="margin-bottom: 20px;">
+            <div class="db-card-header"><h3>Student List</h3><span style="font-size: 0.82rem; color: var(--text-muted);">184 total</span></div>
+            <div class="db-student-item">
+              <img src="assets/images/img12.jpg" alt="Student" class="db-student-avatar">
+              <div class="db-student-info"><h4>Sophia Martinez</h4><p>Spanish B1 — 85% progress</p></div>
+              <span class="db-student-level">B1</span>
+            </div>
+            <div class="db-student-item">
+              <img src="assets/images/img14.jpg" alt="Student" class="db-student-avatar">
+              <div class="db-student-info"><h4>Carlos Gomez</h4><p>Spanish B1 — 62% progress</p></div>
+              <span class="db-student-level">B1</span>
+            </div>
+            <div class="db-student-item">
+              <img src="assets/images/img15.jpg" alt="Student" class="db-student-avatar">
+              <div class="db-student-info"><h4>Emma Wilson</h4><p>Medical Spanish — 78% progress</p></div>
+              <span class="db-student-level">B2</span>
+            </div>
+            <div class="db-student-item">
+              <img src="assets/images/ing3.jpg" alt="Student" class="db-student-avatar">
+              <div class="db-student-info"><h4>Liam Chen</h4><p>Advanced Grammar — 91% progress</p></div>
+              <span class="db-student-level">C1</span>
+            </div>
+            <div class="db-student-item">
+              <img src="assets/images/img16.jpg" alt="Student" class="db-student-avatar">
+              <div class="db-student-info"><h4>Olivia Kim</h4><p>Spanish Conversational — 55% progress</p></div>
+              <span class="db-student-level">A2</span>
+            </div>
+          </div>
+
+          <div class="db-grid-2 db-fade-in">
+            <div class="db-card">
+              <div class="db-card-header"><h3>Student Profile Card</h3></div>
+              <div class="db-student-profile-card">
+                <img src="assets/images/img12.jpg" alt="Sophia">
+                <div class="db-student-profile-info">
+                  <h4>Sophia Martinez</h4>
+                  <p>Product Designer, Meta • Spanish B1</p>
+                  <div style="display: flex; gap: 16px; margin-top: 8px; font-size: 0.8rem; color: var(--text-muted);">
+                    <span>📅 24 lessons</span>
+                    <span>⭐ 4.9 avg</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="db-card">
+              <div class="db-card-header"><h3>Attendance Overview</h3></div>
+              <div class="db-student-item">
+                <div class="db-student-info"><h4>Sophia Martinez</h4><p>This month</p></div>
+                <div><div style="font-size: 0.85rem; font-weight: 800; color: var(--dark-green);">92%</div><div class="db-attendance-bar"><div class="db-attendance-fill" style="width: 92%;"></div></div></div>
+              </div>
+              <div class="db-student-item">
+                <div class="db-student-info"><h4>Carlos Gomez</h4><p>This month</p></div>
+                <div><div style="font-size: 0.85rem; font-weight: 800; color: var(--dark-green);">78%</div><div class="db-attendance-bar"><div class="db-attendance-fill" style="width: 78%;"></div></div></div>
+              </div>
+              <div class="db-student-item">
+                <div class="db-student-info"><h4>Emma Wilson</h4><p>This month</p></div>
+                <div><div style="font-size: 0.85rem; font-weight: 800; color: var(--dark-green);">95%</div><div class="db-attendance-bar"><div class="db-attendance-fill" style="width: 95%;"></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             SECTION: PROFILE
+             ============================================================ -->
+        <div id="section-profile" class="db-section db-hidden">
+
+          <div class="db-profile-header db-fade-in">
+            <img src="assets/images/img13.jpg" alt="Teacher" class="db-profile-avatar">
+            <div class="db-profile-info">
+              <h2>Maria Rodriguez</h2>
+              <p>Spanish Language Instructor • <span class="db-user-role">Teacher</span></p>
+              <button class="db-edit-btn" style="margin-top: 12px;"><i class="fas fa-pen"></i> Edit Profile</button>
+            </div>
+          </div>
+
+          <div class="db-card db-fade-in">
+            <div class="db-card-header"><h3>Personal Information</h3></div>
+            <div class="db-profile-row">
+              <div class="db-profile-field">
+                <label>Full Name</label>
+                <div class="db-value">Maria Rodriguez</div>
+              </div>
+              <div class="db-profile-field">
+                <label>Email</label>
+                <div class="db-value">maria.r@stackly.com</div>
+              </div>
+              <div class="db-profile-field">
+                <label>Phone</label>
+                <div class="db-value">+1 (555) 234-5678</div>
+              </div>
+              <div class="db-profile-field">
+                <label>Location</label>
+                <div class="db-value">Madrid, Spain</div>
+              </div>
+              <div class="db-profile-field">
+                <label>Subjects</label>
+                <div class="db-value">Spanish, Latin American Culture</div>
+              </div>
+              <div class="db-profile-field">
+                <label>Experience</label>
+                <div class="db-value">8 years teaching • 4 years on Stackly</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="db-card db-fade-in">
+            <div class="db-card-header"><h3>Bio</h3></div>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.7;">
+              Native Spanish speaker from Madrid with 8+ years of experience teaching Spanish to international students.
+              Specializing in conversational fluency, business Spanish, and DELE exam preparation. Passionate about helping
+              students gain real-world speaking confidence.
+            </p>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             SECTION: SETTINGS
+             ============================================================ -->
+        <div id="section-settings" class="db-section db-hidden">
+
+          <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--text-dark); margin-bottom: 16px;" class="db-fade-in">⚙️ Settings</h2>
+
+          <div class="db-card db-fade-in">
+            <div class="db-setting-group">
+              <h3>Change Password</h3>
+              <div class="db-profile-row">
+                <div class="db-profile-field">
+                  <label>Current Password</label>
+                  <div class="db-input-wrap" style="position: relative;">
+                    <input type="password" class="db-search-input" style="width: 100%;" placeholder="••••••••" value="password123">
+                    <button class="db-pw-toggle" type="button" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--text-muted);"><i class="fas fa-eye"></i></button>
+                  </div>
+                </div>
+                <div class="db-profile-field">
+                  <label>New Password</label>
+                  <div class="db-input-wrap" style="position: relative;">
+                    <input type="password" class="db-search-input" style="width: 100%;" placeholder="New password">
+                    <button class="db-pw-toggle" type="button" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--text-muted);"><i class="fas fa-eye"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="db-setting-group">
+              <h3>Notification Preferences</h3>
+              <div class="db-setting-item"><label>Email notifications for new enrollments</label><button class="db-toggle on"></button></div>
+              <div class="db-setting-item"><label>Push notifications for messages</label><button class="db-toggle on"></button></div>
+              <div class="db-setting-item"><label>Weekly summary email</label><button class="db-toggle on"></button></div>
+              <div class="db-setting-item"><label>SMS for urgent class changes</label><button class="db-toggle"></button></div>
+            </div>
+
+            <div class="db-setting-group">
+              <h3>Availability</h3>
+              <div class="db-setting-item"><label>Available for new students</label><button class="db-toggle on"></button></div>
+              <div class="db-setting-item"><label>Auto-accept booking requests</label><button class="db-toggle"></button></div>
+              <div class="db-setting-item"><label>Show calendar publicly</label><button class="db-toggle on"></button></div>
+            </div>
+
+            <div class="db-setting-group">
+              <h3>Language & Region</h3>
+              <div class="db-profile-row">
+                <div class="db-profile-field">
+                  <label>Interface Language</label>
+                  <select class="db-filter-select" style="width: 100%;">
+                    <option>English</option>
+                    <option>Spanish</option>
+                    <option>French</option>
+                  </select>
+                </div>
+                <div class="db-profile-field">
+                  <label>Timezone</label>
+                  <select class="db-filter-select" style="width: 100%;">
+                    <option>UTC-5 (Eastern)</option>
+                    <option>UTC-6 (Central)</option>
+                    <option selected>UTC+1 (CET)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="db-setting-group">
+              <h3>Privacy</h3>
+              <div class="db-setting-item"><label>Show profile to other teachers</label><button class="db-toggle on"></button></div>
+              <div class="db-setting-item"><label>Share student progress with admins</label><button class="db-toggle on"></button></div>
+              <div class="db-setting-item"><label>Allow class recording</label><button class="db-toggle"></button></div>
+            </div>
+
+            <button class="db-save-btn">Save Changes</button>
+          </div>
+        </div>
+
+      </div><!-- /db-content -->
+    </div><!-- /db-main-wrap -->
+  </div><!-- /db-wrapper -->
+
+  <script src="js/script.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

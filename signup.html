@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Stackly</title>
+  <meta name="description" content="Create a free Stackly account to access language courses, live tutor sessions, and fluency progress tracking.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div class="au-wrapper">
+    <!-- Back to Home -->
+    <a href="index.html" class="au-back-btn" aria-label="Back to Home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+    <div class="au-split au-fade-in">
+
+      <!-- ===== LEFT SIDE: Illustration ===== -->
+      <div class="au-left">
+        <div class="au-left-dots"></div>
+        <div class="au-left-blob au-left-blob-1"></div>
+        <div class="au-left-blob au-left-blob-2"></div>
+        <div class="au-left-blob au-left-blob-3"></div>
+        <div class="au-left-icon">🌍</div>
+        <div class="au-left-icon">📚</div>
+        <div class="au-left-icon">💬</div>
+        <div class="au-left-icon">🎓</div>
+        <div class="au-left-icon">🗣️</div>
+        <div class="au-left-icon">🏆</div>
+        <div class="au-left-shape au-left-shape-circle"></div>
+        <div class="au-left-shape au-left-shape-square"></div>
+        <div class="au-left-shape au-left-shape-triangle"></div>
+        <div class="au-left-shape au-left-shape-circle"></div>
+        <div class="au-left-line au-left-line-1"></div>
+        <div class="au-left-line au-left-line-2"></div>
+
+        <div class="au-left-content">
+          <div class="au-left-badge">
+            <i class="fas fa-rocket"></i> Start Speaking in Week 1
+          </div>
+          <h2>Begin Your<br>Language Adventure</h2>
+          <p>Join 10,000+ learners worldwide mastering new languages with live native tutors.</p>
+          <div class="au-stats">
+            <div class="au-stat-card">
+              <div class="au-stat-icon"><i class="fas fa-user-graduate"></i></div>
+              <div class="au-stat-info">
+                <div class="au-stat-stars">★★★★★</div>
+                <div class="au-stat-num">10,000+</div>
+                <div class="au-stat-label">Students Enrolled</div>
+              </div>
+            </div>
+            <div class="au-stat-card">
+              <div class="au-stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+              <div class="au-stat-info">
+                <div class="au-stat-num">200+</div>
+                <div class="au-stat-label">Expert Teachers</div>
+              </div>
+            </div>
+            <div class="au-stat-card">
+              <div class="au-stat-icon"><i class="fas fa-trophy"></i></div>
+              <div class="au-stat-info">
+                <div class="au-stat-num">98%</div>
+                <div class="au-stat-label">Course Completion Rate</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== RIGHT SIDE: Glass Signup Card ===== -->
+      <div class="au-right">
+        <div class="au-glass-card">
+          <div class="au-logo-mobile">
+            <img src="assets/images/logo.webp" alt="Stackly" style="height: 36px; filter: brightness(0);">
+          </div>
+
+          <div class="au-header">
+            <h1>Create Your Account</h1>
+            <p>Start speaking fluently in your first week.</p>
+          </div>
+
+          <div class="au-role-selector">
+            <button class="au-role-btn au-active" data-role="student" type="button">Student</button>
+            <button class="au-role-btn" data-role="teacher" type="button">Teacher</button>
+          </div>
+
+          <form id="auSignupForm" novalidate>
+            <input type="hidden" name="role" value="student">
+
+            <div class="au-form-row">
+              <div class="au-form-group">
+                <label for="auFirstName">First Name</label>
+                <div class="au-input-wrap">
+                  <span class="au-input-icon"><i class="fas fa-user"></i></span>
+                  <input type="text" id="auFirstName" placeholder="John" autocomplete="given-name">
+                  <div class="au-error-msg"></div>
+                </div>
+              </div>
+              <div class="au-form-group">
+                <label for="auLastName">Last Name</label>
+                <div class="au-input-wrap">
+                  <span class="au-input-icon"><i class="fas fa-user"></i></span>
+                  <input type="text" id="auLastName" placeholder="Doe" autocomplete="family-name">
+                  <div class="au-error-msg"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="au-form-group">
+              <label for="auEmail">Email Address</label>
+              <div class="au-input-wrap">
+                <span class="au-input-icon"><i class="fas fa-envelope"></i></span>
+                <input type="email" id="auEmail" placeholder="john@example.com" autocomplete="email">
+                <div class="au-error-msg"></div>
+              </div>
+            </div>
+
+            <div class="au-form-group">
+              <label for="auPhone">Phone Number</label>
+              <div class="au-input-wrap">
+                <span class="au-input-icon"><i class="fas fa-phone"></i></span>
+                <input type="tel" id="auPhone" placeholder="+1 (555) 123-4567" autocomplete="tel">
+                <div class="au-error-msg"></div>
+              </div>
+            </div>
+
+            <div class="au-form-row">
+              <div class="au-form-group">
+                <label for="auPassword">Password</label>
+                <div class="au-input-wrap">
+                  <span class="au-input-icon"><i class="fas fa-lock"></i></span>
+                  <input type="password" id="auPassword" placeholder="Min. 6 characters" autocomplete="new-password" data-strength>
+                  <button class="au-pw-toggle" type="button" aria-label="Toggle password visibility"><i class="fas fa-eye"></i></button>
+                  <div class="au-strength"><span class="au-strength-bar"></span><span class="au-strength-bar"></span><span class="au-strength-bar"></span><span class="au-strength-bar"></span><span class="au-strength-bar"></span></div>
+                  <span class="au-strength-text"></span>
+                  <div class="au-error-msg"></div>
+                </div>
+              </div>
+              <div class="au-form-group">
+                <label for="auConfirm">Confirm Password</label>
+                <div class="au-input-wrap">
+                  <span class="au-input-icon"><i class="fas fa-lock"></i></span>
+                  <input type="password" id="auConfirm" placeholder="Re-enter password" autocomplete="new-password">
+                  <button class="au-pw-toggle" type="button" aria-label="Toggle password visibility"><i class="fas fa-eye"></i></button>
+                  <div class="au-error-msg"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="au-terms">
+              <input type="checkbox" id="auTerms">
+              <label for="auTerms">I agree to the <a href="404.html">Terms &amp; Conditions</a> and <a href="404.html">Privacy Policy</a>.</label>
+            </div>
+
+            <button type="submit" class="au-submit">
+              <span class="au-spinner"></span>
+              <span class="au-btn-text">Create Free Account <i class="fas fa-arrow-right"></i></span>
+            </button>
+          </form>
+
+          <div class="au-divider">or continue with</div>
+
+          <div class="au-social">
+            <button class="au-social-btn" type="button" onclick="alert('Google Signup Coming Soon')"><i class="fab fa-google" style="color:#EA4335;"></i> Google</button>
+            <button class="au-social-btn" type="button" onclick="alert('Microsoft Signup Coming Soon')"><i class="fab fa-microsoft" style="color:#00A4EF;"></i> Microsoft</button>
+            <button class="au-social-btn" type="button" onclick="alert('GitHub Signup Coming Soon')"><i class="fab fa-github"></i> GitHub</button>
+          </div>
+
+          <div class="au-footer-text">
+            Already have an account? <a href="login.html">Sign In</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

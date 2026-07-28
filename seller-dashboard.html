@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Admin Dashboard - Stackly</title>
+  <meta name="description" content="Instructor analytics portal for Stackly teachers: manage courses, track student growth, and view earnings.">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div class="container" style="padding-top: 16px;">
+    
+    <!-- Mobile Dashboard Header -->
+    <div class="dash-mobile-header">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.webp" alt="Stackly" style="height: 32px; width: auto; filter: brightness(0);">
+      </a>
+      <button class="dash-mobile-toggle" aria-label="Toggle sidebar menu"><i class="fas fa-bars"></i></button>
+    </div>
+    
+    <div class="dashboard-wrapper">
+      
+      <!-- Sidebar -->
+      <aside class="dash-sidebar" style="background: #193108;">
+        <div>
+          <a href="index.html" class="logo" style="color: #fff;">
+            <img src="assets/images/logo.webp" alt="Stackly Logo" style="filter: brightness(0) invert(1);">
+            Stackly Admin
+          </a>
+
+          <ul class="sidebar-menu">
+            <li><a href="seller-dashboard.html" class="menu-item active"><i class="fas fa-chart-line"></i> Analytics & Revenue</a></li>
+            <li><a href="services.html" class="menu-item"><i class="fas fa-graduation-cap"></i> My Courses</a></li>
+            <li><a href="dashboard.html" class="menu-item"><i class="fas fa-users"></i> Student Roster</a></li>
+            <li><a href="faq.html" class="menu-item"><i class="fas fa-calendar-alt"></i> Class Schedule</a></li>
+            <li><a href="contact.html" class="menu-item"><i class="fas fa-cog"></i> Payout Settings</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <a href="login.html" class="btn btn-white" style="width: 100%;">Sign Out</a>
+        </div>
+      </aside>
+
+      <!-- Main Admin Content -->
+      <main class="dash-content">
+        
+        <!-- Topbar -->
+        <header class="dash-topbar">
+          <div>
+            <h1 style="font-size: 1.6rem; font-weight: 800;">Instructor Portal: Maria Rodriguez <i class="fas fa-crown"></i></h1>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Manage your curriculum, track monthly revenue, and host live classes.</p>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <button class="btn btn-primary" onclick="alert('Open Add Course Modal');">+ Create New Course</button>
+            <img src="assets/images/student-avatar1.svg" alt="Admin avatar" style="width: 44px; height: 44px; border-radius: 50%;">
+          </div>
+        </header>
+
+        <!-- Stats Grid -->
+        <div class="dash-stats-grid">
+          <div class="dash-stat-card">
+            <h4>Total Revenue (June)</h4>
+            <div class="value">$7,800</div>
+
+          <div class="dash-stat-card">
+            <h4>Active Students</h4>
+            <div class="value">412 Students</div>
+
+          <div class="dash-stat-card">
+            <h4>Taught Live Hours</h4>
+            <div class="value">1,420 hrs</div>
+
+          <div class="dash-stat-card">
+            <h4>Teacher Rating</h4>
+            <div class="value">4.98 ★</div>
+        </div>
+
+        <!-- Canvas Revenue Line Chart -->
+        <div class="chart-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h3 style="font-size: 1.25rem;">Monthly Income Trend (Canvas API)</h3>
+            <span style="font-size: 0.88rem; color: var(--text-muted);">Last 6 Months • USD</span>
+          </div>
+          <canvas id="revenueCanvas" height="240"></canvas>
+        </div>
+
+        <!-- Course Management Table -->
+        <div class="data-table-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h3 style="font-size: 1.2rem;">Course Portfolio Management</h3>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">4 Active Programs</span>
+          </div>
+
+          <table class="dash-table">
+            <thead>
+              <tr>
+                <th>Course Name</th>
+                <th>Enrolled</th>
+                <th>Price</th>
+                <th>Total Earnings</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Spanish Conversational Masterclass</strong></td>
+                <td>184 Students</td>
+                <td>$129</td>
+                <td>$23,736</td>
+                <td><span style="background: #DCE888; color: #24440D; padding: 2px 10px; border-radius: 12px; font-weight: 700; font-size: 0.8rem;">Active</span></td>
+                <td>
+                  <a href="404.html" class="btn btn-white" style="padding: 4px 10px; font-size: 0.8rem;">Edit</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td><strong>Advanced Spanish Grammar & Essay Writing</strong></td>
+                <td>92 Students</td>
+                <td>$149</td>
+                <td>$13,708</td>
+                <td><span style="background: #DCE888; color: #24440D; padding: 2px 10px; border-radius: 12px; font-weight: 700; font-size: 0.8rem;">Active</span></td>
+                <td>
+                  <a href="404.html" class="btn btn-white" style="padding: 4px 10px; font-size: 0.8rem;">Edit</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td><strong>Medical Spanish for Healthcare Professionals</strong></td>
+                <td>136 Students</td>
+                <td>$179</td>
+                <td>$24,344</td>
+                <td><span style="background: #DCE888; color: #24440D; padding: 2px 10px; border-radius: 12px; font-weight: 700; font-size: 0.8rem;">Active</span></td>
+                <td>
+                  <a href="404.html" class="btn btn-white" style="padding: 4px 10px; font-size: 0.8rem;">Edit</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </main>
+    </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
