@@ -90,23 +90,6 @@ function initServicesFaq() {
 }
 
 
-  // Dots click
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      goToSlide(i);
-      startAutoSlide(); // reset timer
-    });
-  });
-
-  if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); startAutoSlide(); });
-  if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); startAutoSlide(); });
-
-  // Initialize
-  goToSlide(0);
-  startAutoSlide();
-
-
-
 /* ── MOUSE PARALLAX ON HERO SHAPES ── */
 function initServicesParallax() {
   const hero = document.querySelector('.srv-hero');
@@ -137,3 +120,10 @@ function initServicesParallax() {
     });
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  initServicesHero();
+  initServicesReveal();
+  initServicesFaq();
+  initServicesParallax();
+});
