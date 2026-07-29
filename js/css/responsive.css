@@ -1,0 +1,788 @@
+/* ==========================================================================
+   STACKLY - RESPONSIVE BREAKPOINTS (COMPREHENSIVE FIX)
+   ========================================================================== */
+
+/* Hide mobile auth links on desktop by default */
+.mobile-auth-links {
+  display: none;
+}
+
+/* ==========================================================================
+   DESKTOP RESET for .main-nav (ensures mobile styles don't leak to desktop)
+   Applied before mobile queries so it takes priority via cascade when
+   viewport is >= 993px
+   ========================================================================== */
+@media (min-width: 993px) {
+  .main-nav {
+    position: static !important;
+    transform: none !important;
+    width: auto !important;
+    height: auto !important;
+    background: transparent !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    z-index: auto !important;
+    display: flex !important;
+  }
+
+  body.nav-open,
+  body.nav-open .site-header,
+  body.nav-open .hero-wrapper,
+  body.nav-open .page-hero {
+    padding-right: 0 !important;
+  }
+}
+
+/* Fluid typography base */
+@media (max-width: 1400px) {
+  .hero-title { font-size: calc(2.4rem + 1.4vw); }
+  .section-heading { font-size: calc(1.5rem + 0.5vw); }
+  .page-hero h1 { font-size: calc(2rem + 1.2vw); }
+}
+
+@media (max-width: 1200px) {
+  .hero-top-grid { grid-template-columns: 1fr; }
+  .hero-card-right { min-height: 400px; }
+  
+  .courses-grid, .why-grid, .pricing-grid, .team-grid,
+  .services-grid-section, .blog-grid, .community-grid,
+  .tutors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-top { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+/* ==========================================================================
+   MOBILE NAV OVERLAY
+   ========================================================================== */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  pointer-events: none;
+}
+
+body.nav-open .nav-overlay {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  touch-action: none;
+  -webkit-touch-callout: none;
+}
+
+/* Mobile toggle open -> X animation */
+.mobile-toggle.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.mobile-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-toggle.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   992px BREAKPOINT - TABLET LANDSCAPE & BELOW
+   ========================================================================== */
+@media (max-width: 992px) {
+  /* ---- BODY & OVERFLOW ---- */
+  body {
+    padding: 0 !important;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* ---- FIXED HEADER ---- */
+  .site-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    z-index: 1002;
+    margin: 0;
+    padding: 6px;
+  }
+
+  .header-container {
+    border-radius: 16px;
+    padding: 6px 10px 6px 14px;
+    width: 100%;
+  }
+
+  /* ---- TOP SPACING FOR FIXED HEADER (all pages) ---- */
+  .hero-wrapper { padding-top: 72px !important; }
+  .page-hero { padding-top: 72px !important; }
+  .contact-page-hero { padding-top: 72px !important; }
+
+  /* ---- SECTION CONTAINMENT (prevent overflow) ---- */
+  .hero-wrapper,
+  .courses-section,
+  .why-section,
+  .process-section,
+  .pricing-section,
+  .testimonials-section,
+  .community-section,
+  .faq-section,
+  .site-footer,
+  .page-hero,
+  .about-story-section,
+  .mission-vision-grid,
+  .team-section,
+  .services-grid-section,
+  .tutors-section,
+  .certifications-section,
+  .featured-blog-section,
+  .blog-grid-section,
+  .blog-article-container,
+  .contact-layout,
+  .map-section,
+  .contact-separator,
+  .logo-slider-section {
+    max-width: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* ---- SECTION SIDE SPACING ---- */
+  .hero-wrapper { padding-left: 8px; padding-right: 8px; }
+
+  .courses-section,
+  .process-section,
+  .pricing-section,
+  .testimonials-section,
+  .community-section,
+  .faq-section,
+  .page-hero,
+  .about-story-section,
+  .team-section,
+  .blog-grid-section,
+  .blog-article-container,
+  .featured-blog-section,
+  .contact-layout,
+  .map-section,
+  .contact-separator,
+  .logo-slider-section,
+  .services-grid-section,
+  .tutors-section,
+  .certifications-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+    width: auto;
+    border-radius: var(--radius-lg);
+  }
+
+  .why-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+    width: auto;
+    border-radius: var(--radius-lg);
+  }
+
+  .mission-vision-grid {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+    width: auto;
+  }
+
+  .site-footer {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+    width: auto;
+    border-radius: var(--radius-lg);
+  }
+
+  /* ---- FLOATING WORDS OVERFLOW FIX ---- */
+  .floating-lang-words {
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .floating-word {
+    max-width: 100%;
+    white-space: nowrap;
+  }
+
+  /* ---- HERO BADGES OVERFLOW FIX ---- */
+  .hero-card-right .img-badge.img-badge-1 { left: 8px; }
+  .hero-card-right .img-badge.img-badge-2 { right: 8px; }
+  .hero-card-right { min-height: 380px; }
+
+  /* ---- FULL-SCREEN OVERLAY NAV ---- */
+  .main-nav {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    background: var(--card-white);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 40px 40px;
+    box-shadow: none;
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 1001;
+    transform: translateX(100%);
+  }
+
+  .main-nav.active { transform: translateX(0); }
+
+  .main-nav.active + .nav-overlay,
+  .main-nav.active ~ .nav-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+  .nav-list .nav-link { font-size: 1.4rem; }
+  .mobile-toggle { display: flex; }
+  .mobile-auth-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-subtle);
+    width: 100%;
+    max-width: 280px;
+  }
+  .mobile-auth-links .btn {
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 1rem;
+    text-align: center;
+  }
+  .header-actions .btn { display: none; }
+  .header-actions .mobile-toggle { display: flex !important; }
+
+  /* ---- HOME HERO GRID ---- */
+  .hero-bottom-grid { grid-template-columns: 1fr; }
+  .process-timeline { grid-template-columns: repeat(2, 1fr); }
+
+  /* ---- ABOUT PAGE ---- */
+  .about-story-section { grid-template-columns: 1fr; gap: 32px; }
+  .about-story-content h2 { font-size: calc(1.6rem + 0.8vw); }
+  .mission-vision-grid { grid-template-columns: 1fr; gap: 16px; }
+  .mv-card { padding: 32px 24px; }
+  .mv-card h2 { font-size: calc(1.4rem + 0.6vw); }
+
+  /* ---- BLOG PAGE ---- */
+  .featured-blog-section { grid-template-columns: 1fr; gap: 24px; }
+  .featured-blog-img { height: 260px; }
+  .featured-blog-info h2 { font-size: calc(1.5rem + 0.6vw); }
+  .blog-article-header h1 { font-size: calc(1.6rem + 0.8vw); }
+
+  /* ---- SERVICES PAGE ---- */
+  .services-grid-section,
+  .tutors-grid { grid-template-columns: repeat(2, 1fr); }
+  .service-card { padding: 28px 24px; }
+  .service-card h3 { font-size: calc(1.1rem + 0.3vw); }
+  .tutor-card { flex-direction: column; text-align: center; }
+  .certifications-section h2 { font-size: calc(1.6rem + 0.8vw); }
+
+  /* ---- CONTACT PAGE ---- */
+  .contact-layout { grid-template-columns: 1fr; }
+  .contact-info-card { padding: 36px 28px; }
+  .contact-info-card h2 { font-size: calc(1.4rem + 0.6vw); }
+  .contact-form-card { padding: 36px 28px; }
+  .contact-form-card h2 { font-size: calc(1.3rem + 0.5vw); }
+  .contact-page-hero h1 { font-size: calc(1.6rem + 0.8vw); }
+  .map-placeholder { height: 300px; }
+
+  /* ---- DASHBOARD ---- */
+  .dashboard-wrapper { grid-template-columns: 1fr; }
+  .dash-sidebar { display: none; }
+  .dash-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .charts-row { grid-template-columns: 1fr; }
+  .dash-mobile-header { display: flex; }
+  .dash-mobile-toggle { display: block; }
+
+  /* ---- AUTH PAGES ---- */
+  .auth-split-layout { grid-template-columns: 1fr; max-width: 480px; min-height: auto; }
+  .auth-visual-panel { padding: 36px 28px; min-height: 260px; }
+  .auth-visual-panel h2 { font-size: calc(1.2rem + 0.4vw); }
+  .auth-visual-features { margin-top: 24px; gap: 14px; }
+  .auth-form-panel { padding: 32px 24px; }
+  .auth-form-panel .auth-header h1 { font-size: calc(1.2rem + 0.4vw); }
+
+  /* ---- FOOTER ---- */
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 24px; }
+}
+
+/* ==========================================================================
+   768px BREAKPOINT - TABLET PORTRAIT
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero-title { font-size: calc(2rem + 1.2vw); }
+  .title-line { gap: 8px; }
+  .title-pill-badge { padding: 2px 16px; font-size: calc(1.2rem + 0.8vw); }
+  .hero-card-left { padding: 28px 20px; }
+  .hero-subtext { font-size: 1rem; }
+  .hero-cta-btn { padding: 12px 20px; font-size: 0.85rem; }
+  .arrow-badge.lg { width: 44px; height: 44px; font-size: 1.1rem; }
+
+  .courses-section,
+  .why-section,
+  .pricing-section,
+  .process-section,
+  .faq-section,
+  .testimonials-section,
+  .community-section {
+    padding: 28px 20px !important;
+  }
+
+  .section-heading { font-size: calc(1.3rem + 0.5vw); }
+  .section-subtext { font-size: 0.95rem; }
+
+  .courses-grid,
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .why-card { padding: 20px 16px; }
+  .process-timeline { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .process-step { padding: 20px 16px; }
+
+  .pricing-grid { grid-template-columns: 1fr; gap: 16px; }
+  .pricing-card.featured { transform: none; }
+
+  .community-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .community-card { padding: 20px 16px; }
+
+  .testimonial-quote { font-size: calc(1.1rem + 0.4vw); }
+
+  .page-hero { padding: 32px 20px !important; }
+  .page-hero h1 { font-size: calc(1.6rem + 1vw); }
+  .page-hero p { font-size: 1rem; }
+
+  /* ---- BLOG ---- */
+  .blog-grid-section { padding: 32px 20px !important; }
+  .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .blog-card img { height: 180px; }
+  .blog-card h3 { font-size: 1.1rem; }
+  .blog-article-container { padding: 32px 24px !important; }
+  .article-content p { font-size: 1.05rem; }
+
+  /* ---- SERVICES ---- */
+  .services-grid-section,
+  .tutors-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .service-card { padding: 24px 20px; }
+  .service-icon { width: 48px; height: 48px; font-size: 1.4rem; }
+  .tutors-section,
+  .certifications-section { padding: 32px 24px !important; }
+  .tutor-card { padding: 16px; }
+  .tutor-card img { width: 64px; height: 64px; }
+
+  /* ---- TEAM ---- */
+  .team-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .team-card { padding: 20px 16px; }
+  .team-avatar { width: 90px; height: 90px; }
+
+  /* ---- ABOUT ---- */
+  .about-story-section { padding: 32px 24px !important; gap: 24px; }
+  .about-story-content h2 { font-size: calc(1.4rem + 0.6vw); }
+  .mv-card { padding: 28px 20px; }
+
+  /* ---- CONTACT ---- */
+  .contact-info-card { padding: 28px 20px; }
+  .contact-form-card { padding: 28px 20px; }
+  .map-placeholder { height: 240px; }
+
+  /* ---- DASHBOARD ---- */
+  .dash-topbar { padding: 16px 20px; }
+  .dash-topbar h1 { font-size: 1.2rem !important; }
+  .dash-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .dash-stat-card { padding: 16px; }
+  .dash-stat-card .value { font-size: 1.5rem; }
+  .chart-card { padding: 20px; }
+  .chart-card h3 { font-size: 1.1rem; }
+  .data-table-card { padding: 16px; overflow-x: auto; }
+  .dash-table { font-size: 0.85rem; min-width: 500px; }
+  .dash-table th,
+  .dash-table td { padding: 10px 12px; }
+
+  /* ---- FAQ ---- */
+  .faq-question { padding: 16px 20px; font-size: 1rem; }
+
+  /* ---- FOOTER ---- */
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .site-footer { padding: 32px 20px 20px !important; }
+
+  .newsletter-form {
+    flex-direction: column;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  .newsletter-form input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-pill);
+    padding: 12px 16px;
+    width: 100%;
+  }
+  .newsletter-form button { width: 100%; padding: 12px; }
+
+  /* ---- AUTH ---- */
+  .auth-visual-panel { padding: 28px 20px; min-height: 200px; }
+  .auth-visual-panel h2 { font-size: 1.3rem; }
+  .auth-visual-feature { font-size: 0.85rem; }
+  .auth-form-panel { padding: 28px 18px; }
+  .auth-form-panel .auth-header h1 { font-size: 1.4rem; }
+
+  .hero-card-right .img-badge { font-size: 0.7rem; padding: 4px 10px; }
+}
+
+/* ==========================================================================
+   640px BREAKPOINT - SMALL TABLET / LARGE PHONE
+   ========================================================================== */
+@media (max-width: 640px) {
+  .hero-title { font-size: calc(1.8rem + 1.2vw); }
+  .title-pill-badge { padding: 2px 12px; font-size: calc(1rem + 0.8vw); }
+  .hero-card-left { padding: 24px 16px; }
+  .hero-card-right { min-height: 300px; }
+
+  .courses-grid, .why-grid, .pricing-grid, .team-grid,
+  .services-grid-section, .blog-grid, .process-timeline,
+  .dash-stats-grid, .community-grid, .tutors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+
+  .contact-layout, .about-story-section, .featured-blog-section {
+    grid-template-columns: 1fr;
+  }
+
+  /* ---- DASHBOARD ---- */
+  .dash-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+  }
+  .dash-topbar h1 { font-size: 1.1rem !important; }
+  .dash-topbar > div:last-child { width: 100%; justify-content: space-between; }
+
+  .dash-stats-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .dash-stat-card { padding: 14px; }
+  .dash-stat-card .value { font-size: 1.3rem; }
+
+  .charts-row { grid-template-columns: 1fr; }
+  .chart-card { padding: 16px; }
+  .chart-card h3 { font-size: 1rem; }
+  .data-table-card { padding: 12px; overflow-x: auto; }
+  .dash-table { font-size: 0.8rem; min-width: 400px; }
+  .dash-table th,
+  .dash-table td { padding: 8px 10px; }
+  .dash-table td:last-child .btn { padding: 4px 10px; font-size: 0.75rem; }
+
+  /* ---- AUTH ---- */
+  .auth-page-wrapper { padding: 12px 0; min-height: auto; }
+  .auth-split-layout { max-width: 100%; border-radius: var(--radius-lg); }
+  .auth-visual-panel { padding: 24px 16px; min-height: 180px; }
+  .auth-visual-panel h2 { font-size: 1.2rem; }
+  .auth-visual-features { margin-top: 16px; gap: 10px; }
+  .auth-visual-feature { font-size: 0.8rem; }
+  .auth-visual-testimonial { display: none; }
+  .auth-form-panel { padding: 24px 16px; }
+  .auth-form-panel .auth-header h1 { font-size: 1.3rem; }
+  .role-selector .role-btn { font-size: 0.78rem; padding: 8px 6px; }
+
+  /* ---- CONTACT ---- */
+  .contact-page-hero h1 { font-size: calc(1.3rem + 0.6vw); }
+  .contact-info-card { padding: 24px 16px; }
+  .contact-info-card h2 { font-size: calc(1.2rem + 0.5vw); }
+  .contact-form-card { padding: 24px 16px; }
+  .contact-form-card h2 { font-size: calc(1.1rem + 0.4vw); }
+  .contact-quick-badges { flex-direction: column; }
+  .map-placeholder { height: 200px; }
+
+  /* ---- GENERAL ---- */
+  .section-heading { font-size: calc(1.2rem + 0.6vw); }
+  .section-title-wrap { margin-bottom: 24px; }
+
+  .page-hero { padding: 24px 16px !important; }
+  .page-hero h1 { font-size: calc(1.4rem + 0.8vw); }
+
+  .pricing-card { padding: 20px 16px; }
+  .pricing-price .pricing-value { font-size: 2rem; }
+
+  .footer-top { gap: 24px; }
+  .footer-col h4 { margin-bottom: 12px; }
+  .site-footer { padding: 28px 16px 16px !important; }
+
+  .hero-bottom-grid { gap: 8px; }
+  .stat-card { padding: 16px; min-height: 140px; }
+  .stat-num { font-size: calc(1.6rem + 0.6vw); }
+
+  .logo-slider-title { font-size: 0.8rem; }
+  .logo-slider-section { padding: 16px 20px; }
+
+  .hero-card-right .img-badge { font-size: 0.65rem; padding: 3px 8px; }
+  .hero-card-right .img-badge.img-badge-1 { left: 4px; }
+  .hero-card-right .img-badge.img-badge-2 { right: 4px; }
+
+  .why-card { padding: 16px; }
+  .why-card h3 { font-size: 1rem; }
+  .process-step { padding: 16px; }
+  .step-num { width: 36px; height: 36px; font-size: 1.2rem; }
+
+  .testimonial-quote { font-size: calc(1rem + 0.3vw); }
+  .testimonial-user img { width: 48px; height: 48px; }
+
+  .course-thumb img { height: 180px; }
+  .course-body { padding: 16px; }
+  .course-title { font-size: 1.15rem; }
+  .course-price { font-size: 1.2rem; }
+
+  .faq-question { padding: 14px 16px; font-size: 0.95rem; }
+
+  .blog-grid-section { padding: 24px 16px !important; }
+  .blog-grid { gap: 16px; }
+  .blog-card img { height: 160px; }
+  .blog-card-body { padding: 16px; }
+  .blog-card h3 { font-size: 1rem; }
+  .blog-article-container { padding: 24px 16px !important; }
+  .blog-article-header { margin-bottom: 24px; }
+  .blog-article-header h1 { font-size: calc(1.3rem + 0.6vw); }
+  .article-content p { font-size: 0.95rem; margin-bottom: 16px; }
+
+  .featured-blog-section { padding: 24px 16px !important; }
+  .featured-blog-img { height: 200px; }
+  .featured-blog-info h2 { font-size: calc(1.2rem + 0.5vw); }
+
+  .services-grid-section { gap: 16px; padding: 24px 16px !important; }
+  .service-card { padding: 20px 16px; }
+  .service-icon { width: 44px; height: 44px; font-size: 1.2rem; margin-bottom: 16px; }
+  .service-card h3 { font-size: 1.1rem; }
+
+  .tutors-section { padding: 24px 16px !important; }
+  .tutors-grid { gap: 12px; }
+  .tutor-card { padding: 12px; }
+  .tutor-card img { width: 56px; height: 56px; }
+
+  .certifications-section { padding: 32px 16px !important; }
+  .certifications-section h2 { font-size: calc(1.3rem + 0.6vw); }
+
+  .about-story-section { padding: 24px 16px !important; }
+  .about-story-content h2 { font-size: calc(1.3rem + 0.5vw); }
+  .about-story-img { height: 240px; object-fit: cover; border-radius: var(--radius-lg); width: 100%; }
+
+  .mission-vision-grid { gap: 12px; padding: 0 8px !important; }
+  .mv-card { padding: 24px 16px; }
+  .mv-card h2 { font-size: calc(1.2rem + 0.4vw); }
+
+  .team-section { padding: 32px 16px !important; }
+  .team-grid { gap: 12px; }
+  .team-card { padding: 16px; }
+  .team-avatar { width: 80px; height: 80px; }
+  .team-card h3 { font-size: 1rem; }
+
+  .map-section { padding: 16px; }
+  .map-placeholder { height: 180px; }
+}
+
+/* ==========================================================================
+   576px BREAKPOINT - MEDIUM PHONE
+   ========================================================================== */
+@media (max-width: 576px) {
+  .site-header { padding: 4px; }
+  .header-container { padding: 4px 8px 4px 12px; border-radius: 12px; }
+  .logo img { height: 28px; }
+
+  .hero-wrapper { padding-top: 64px !important; }
+  .hero-title { font-size: calc(1.5rem + 1.2vw); }
+  .title-line { gap: 6px; margin-bottom: 4px; }
+  .title-pill-badge { padding: 2px 10px; font-size: calc(0.85rem + 0.8vw); gap: 4px; }
+  .title-pill-shape { width: 14px; height: 20px; }
+  .hero-card-left { padding: 20px 14px; }
+  .hero-subtext { font-size: 0.9rem; margin-bottom: 16px; }
+  .hero-cta-group { gap: 8px; }
+  .hero-cta-btn { padding: 10px 16px; font-size: 0.78rem; }
+  .arrow-badge.lg { width: 38px; height: 38px; font-size: 0.95rem; }
+  .hero-card-right { min-height: 250px; }
+
+  .courses-grid, .why-grid, .pricing-grid, .team-grid,
+  .services-grid-section, .blog-grid, .process-timeline,
+  .dash-stats-grid, .community-grid, .tutors-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .main-nav { padding: 60px 24px 32px; }
+  .dashboard-wrapper { gap: 12px; }
+  .dash-stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+
+  .auth-visual-panel { padding: 20px 16px; min-height: 160px; }
+  .auth-visual-panel h2 { font-size: 1.1rem; }
+  .auth-form-panel { padding: 20px 14px; }
+
+  .contact-info-card { padding: 20px 16px; }
+  .contact-form-card { padding: 20px 16px; }
+
+  .footer-top { gap: 20px; }
+  .site-footer { padding: 24px 14px 16px !important; }
+  .section-heading { font-size: calc(1.1rem + 0.5vw); }
+
+  .page-hero { padding: 20px 14px !important; }
+  .page-hero h1 { font-size: calc(1.2rem + 0.8vw); }
+  .page-hero p { font-size: 0.9rem; }
+
+  .stat-card { padding: 14px; min-height: 120px; }
+  .stat-num { font-size: calc(1.4rem + 0.5vw); }
+}
+
+/* ==========================================================================
+   480px BREAKPOINT - SMALL PHONE
+   ========================================================================== */
+@media (max-width: 480px) {
+  .header-container { padding: 4px 8px 4px 10px; }
+  .logo img { height: 24px; }
+
+  .main-nav { padding: 56px 20px 24px; }
+
+  .hero-title { font-size: calc(1.3rem + 1.2vw); }
+  .title-pill-badge { padding: 1px 8px; font-size: calc(0.75rem + 0.8vw); gap: 3px; }
+  .title-pill-shape { width: 12px; height: 16px; border-radius: 8px; }
+  .hero-card-left { padding: 16px 12px; }
+
+  .hero-card-right { min-height: 200px; }
+  .hero-card-right .img-badge { font-size: 0.6rem; padding: 2px 6px; }
+  .hero-card-right .img-badge.img-badge-1 { bottom: 30%; left: 4px; }
+  .hero-card-right .img-badge.img-badge-2 { bottom: 12%; right: 4px; }
+
+  .hero-cta-btn { padding: 8px 14px; font-size: 0.72rem; }
+  .arrow-badge.lg { width: 34px; height: 34px; font-size: 0.85rem; }
+
+  .courses-section,
+  .why-section,
+  .pricing-section,
+  .process-section,
+  .faq-section,
+  .testimonials-section,
+  .community-section {
+    padding: 20px 14px !important;
+  }
+
+  .section-heading { font-size: calc(1rem + 0.5vw); }
+  .section-subtext { font-size: 0.85rem; }
+  .dash-stats-grid { grid-template-columns: 1fr; }
+  .dash-stat-card .value { font-size: 1.2rem; }
+
+  .contact-page-hero h1 { font-size: calc(1.1rem + 0.6vw); }
+  .contact-info-card { padding: 16px 12px; }
+  .contact-form-card { padding: 16px 12px; }
+
+  .auth-visual-panel { padding: 16px 12px; min-height: 140px; }
+  .auth-visual-panel h2 { font-size: 1rem; }
+  .auth-form-panel { padding: 16px 12px; }
+  .auth-form-panel .auth-header h1 { font-size: 1.1rem; }
+
+  .page-hero { padding: 16px 12px !important; }
+
+  .site-footer { padding: 20px 12px 12px !important; }
+  .footer-top { gap: 16px; }
+  .footer-col h4 { margin-bottom: 10px; font-size: 1rem; }
+
+  .blog-card img { height: 140px; }
+  .featured-blog-img { height: 160px; }
+
+  .service-icon { width: 38px; height: 38px; font-size: 1rem; }
+  .service-card h3 { font-size: 1rem; }
+  .team-avatar { width: 64px; height: 64px; }
+  .stat-card { min-height: 100px; padding: 12px; }
+}
+
+/* ==========================================================================
+   375px BREAKPOINT - VERY SMALL PHONE
+   ========================================================================== */
+@media (max-width: 375px) {
+  .hero-title { font-size: calc(1.1rem + 1.2vw); }
+  .title-line { gap: 4px; }
+  .title-pill-badge { padding: 1px 6px; font-size: calc(0.65rem + 0.8vw); }
+  .title-pill-shape { width: 10px; height: 14px; }
+  .hero-card-left { padding: 14px 10px; }
+  .hero-cta-btn { padding: 6px 12px; font-size: 0.65rem; }
+  .arrow-badge.lg { width: 30px; height: 30px; font-size: 0.75rem; }
+  .hero-card-right { min-height: 180px; }
+
+  .courses-section,
+  .why-section,
+  .pricing-section,
+  .process-section,
+  .faq-section,
+  .testimonials-section,
+  .community-section {
+    padding: 16px 10px !important;
+  }
+
+  .section-heading { font-size: calc(0.9rem + 0.5vw); }
+  .page-hero { padding: 12px 10px !important; }
+
+  .main-nav { padding: 48px 16px 20px; }
+  .nav-list .nav-link { font-size: 1.1rem; }
+  .mobile-auth-links .btn { padding: 10px 18px; font-size: 0.85rem; }
+  .header-container { padding: 3px 6px 3px 8px; }
+  .logo img { height: 20px; }
+  .mobile-toggle { width: 26px; height: 26px; gap: 4px; }
+  .mobile-toggle span { height: 2.5px; }
+}
+
+/* ==========================================================================
+   320px BREAKPOINT - EXTRA SMALL PHONE
+   ========================================================================== */
+@media (max-width: 320px) {
+  .hero-title { font-size: calc(1rem + 1vw); }
+  .title-pill-badge { font-size: calc(0.6rem + 0.5vw); }
+  .hero-card-left { padding: 12px 8px; }
+  .hero-cta-btn { padding: 5px 10px; font-size: 0.6rem; }
+  .arrow-badge.lg { width: 26px; height: 26px; font-size: 0.65rem; }
+  .hero-card-right { min-height: 150px; }
+
+  .main-nav { padding: 40px 12px 16px; }
+  .nav-list .nav-link { font-size: 1rem; }
+  .mobile-auth-links .btn { padding: 8px 14px; font-size: 0.78rem; }
+
+  .section-heading { font-size: calc(0.8rem + 0.5vw); }
+  .page-hero h1 { font-size: calc(1rem + 0.8vw); }
+
+  .stat-card { min-height: 80px; padding: 10px; }
+  .stat-num { font-size: calc(1.2rem + 0.5vw); }
+
+  .dash-stats-grid { grid-template-columns: 1fr; gap: 6px; }
+  .dash-stat-card { padding: 10px; }
+
+  .blog-card img { height: 120px; }
+  .featured-blog-img { height: 140px; }
+}
+
