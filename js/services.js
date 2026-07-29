@@ -68,20 +68,19 @@ function initServicesReveal() {
   revealEls.forEach((el) => observer.observe(el));
 }
 
-/* ── FAQ ACCORDION ── */
 function initServicesFaq() {
-  const items = document.querySelectorAll('.srv-faq-item');
-  if (items.length === 0) return;
+  const items = document.querySelectorAll('.faq-item');
+
+  if (!items.length) return;
 
   items.forEach((item) => {
-    const question = item.querySelector('.srv-faq-question');
+    const question = item.querySelector('.faq-question');
+
     question.addEventListener('click', () => {
       const isActive = item.classList.contains('active');
 
-      // Close all
       items.forEach((i) => i.classList.remove('active'));
 
-      // Open clicked if was closed
       if (!isActive) {
         item.classList.add('active');
       }
